@@ -1,3 +1,6 @@
+
+<%= render 'books/user_info', book: @newbook %>
+
 <h2>Users</h2>
 
 <table>
@@ -14,7 +17,7 @@
       <tr>
         <td><!--画像--></td>
         <td><%= user.name %></td>
-        <td><%= link_to "show", user_path(current_user.id) %></td><!--仮置きユーザーの詳細画面へ-->
+        <td><%= link_to "show", user_path(user.id) %></td><!--仮置きユーザーの詳細画面へ-->
       </tr>
     <% end %>
   </tbody>
