@@ -8,17 +8,22 @@
 
     <tr>
       <th>name</th>
-      <th><!--ユーザー名--></th>
+      <th><%= user.name %></th>
     </tr>
 
     <tr>
       <th>introduction</th>
-      <th><!--ユーザーの自己紹介文--></th>
+      <th><%= user.introduction %></th>
     </tr>
   </tbody>
 </table>
 
 <i class="fas fa-user-cog"></i>
+<% if user.id == current_user.id %>
+  <%= link_to '編集', edit_user_path(user.id) %>
+<% else %>
+  <%= link_to '編集できません', user_path(current_user.id) %>
+<% end %>
 
 <h2>New book</h2>
 

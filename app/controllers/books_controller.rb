@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @newbook = Book.new
+    @loginuser = User.find_by(id: current_user.id)
   end
 
   def create
@@ -14,6 +15,7 @@ class BooksController < ApplicationController
   def show
     @newbook = Book.new
     @book = Book.find(params[:id])
+    @loginuser = User.find_by(id: current_user.id)
   end
 
   def edit
