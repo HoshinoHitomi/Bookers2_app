@@ -3,6 +3,7 @@ class BooksController < ApplicationController
     @books = Book.all
     @newbook = Book.new
     @loginuser = User.find_by(id: current_user.id)
+    @user =User.find_by(id: @book.user_id)#エラーあり、要修正
   end
 
   def create
@@ -16,6 +17,7 @@ class BooksController < ApplicationController
     @newbook = Book.new
     @book = Book.find(params[:id])
     @loginuser = User.find_by(id: current_user.id)
+    @user =User.find_by(id: @book.user_id)
   end
 
   def edit
