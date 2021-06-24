@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def index
     @newbook = Book.new
     @users = User.all
-    @loginuser = User.find_by(id: current_user.id)
+    @login_user = User.find_by(id: current_user.id)
   end
 
   def show

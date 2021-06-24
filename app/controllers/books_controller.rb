@@ -2,8 +2,8 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @newbook = Book.new
-    @loginuser = User.find_by(id: current_user.id)
-    @user =User.find_by(id: @book.user_id)#エラーあり、要修正
+    @login_user = User.find_by(id: current_user.id)
+    @user = User.find(params[:id])#エラーあり、要修正
   end
 
   def create
@@ -16,7 +16,7 @@ class BooksController < ApplicationController
   def show
     @newbook = Book.new
     @book = Book.find(params[:id])
-    @loginuser = User.find_by(id: current_user.id)
+    @login_user = User.find_by(id: current_user.id)
     @user =User.find_by(id: @book.user_id)
   end
 
