@@ -26,6 +26,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def correct_post
+    @user = User.find(params[:id])
+    unless @user == current_user.id
+      redirect_to user_path(current_user.id)
+    end
+  end
+
   private
 
   def user_params
