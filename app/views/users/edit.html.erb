@@ -1,5 +1,12 @@
 <h2>User info</h2>
 
+<% if @user.errors.any? %>
+  <%= pluralize(@user.errors.count, "error") %> prohibited this obj from being saved:
+  <% @user.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
 <%= form_with model:@user, local:true do |f| %>
 
     <label>Name</label>
