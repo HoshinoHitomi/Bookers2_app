@@ -1,31 +1,21 @@
-<h1>welcome to <i class="fas fa-book"></i>Bookers !!</h1>
-  <p>
-    In <i class="fas fa-book"></i>Bookers,</br>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+        <h1>welcome to <strong><i class="fas fa-book"></i>Bookers</strong> !!</h1>
+          <p>In <strong><i class="fas fa-book"></i>Bookers</strong>,</p>
 
-    you can share and exchange your opinions , inpressions , and emotions</br>
+          <p>you can share and exchange your opinions , inpressions , and emotions</p>
 
-    about various books!</br>
-  </p>
+          <p>about various books!</p>
 
-    <% if user_signed_in? %>
+          <div class="btn-wrapper col-10 mx-auto">
+            
+              <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3" %>
 
-      <!--<li>-->
-      <!--  <%= link_to "logout", destroy_user_session_path, method: :delete %>-->
-      <!--</li>-->
-
-    <% else %>
-
-      <li>
-        <%= link_to "Log in", new_user_session_path %>
-      </li>
-
-      <li>
-        <%= link_to "Sign Up", new_user_registration_path %>
-      </li>
-
-    <% end %>
-
-
-    <footer>
-      CopyRight Infratop.inc
-    </footer>
+              <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success btn-sm btn-block" %>
+          </div>
+      </div>
+    </div>
+  </div>
+</main>
