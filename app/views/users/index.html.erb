@@ -1,31 +1,33 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <%= render 'books/user_info', book: @newbook, user: @login_user %>
-    </div>
+<main>
+  <div class="container px-5 px-sm-0">
+    <div class="row">
+      <div class="col-md-3">
+        <%= render 'books/user_info', book: @newbook, user: @login_user %>
+      </div>
 
-    <div class="col-md-8 offset-md-1">
-      <h2>Users</h2>
+      <div class="col-md-8 offset-md-1">
+        <h2>Users</h2>
 
-      <table>
-        <thead>
-          <tr>
-            <th>image</th>
-            <th>name</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @users.each do |user| %>
+        <table class="table">
+          <thead>
             <tr>
-              <td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></td>
-              <td><%= user.name %></td>
-              <td><%= link_to "Show", user_path(user.id) %></td><!--Rspecエラーあり-->
+              <th>image</th>
+              <th>name</th>
+              <th colspan="3"></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:"40x40" %></td>
+                <td><%= user.name %></td>
+                <td><%= link_to "Show", user_path(user.id) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
+</main>

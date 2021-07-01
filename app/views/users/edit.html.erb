@@ -1,22 +1,44 @@
-<% if @user.errors.any? %>
-  <%= pluralize(@user.errors.count, "error") %> prohibited this obj from being saved:
-  <% @user.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<% end %>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h2>User info</h2>
 
-<h2>User info</h2>
+        <div id="error_explanation">
+          <% if @user.errors.any? %>
+            <h3><%= pluralize(@user.errors.count, "error") %> prohibited this obj from being saved:</h3>
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li>
+                  <%= message %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
 
-<%= form_with model:@user, local:true do |f| %>
+        <%= form_with model:@user, local:true do |f| %>
 
-    <label>Name</label>
-    <%= f.text_field :name %>
+          <div class="form-group">
+            <label>Name</label>
+            <%= f.text_field :name, class:"form-control" %>
+          </div>
 
-    <label>Image</label>
-    <%= f.attachment_field :profile_image %>
+          <div class="form-group">
+            <label>Image</label>
+            <%= f.attachment_field :profile_image, class:"form-control-file user-image" %>
+          </div>
 
-    <label>Introduction</label>
-    <%= f.text_area :introduction %>
+          <div class="form-group">
+            <label>Introduction</label>
+            <%= f.text_area :introduction, class:"form-control" %>
+          </div>
 
-    <%= f.submit 'Update User' %>
-<% end %>
+          <div class="form-group">
+            <%= f.submit 'Update User', class:"btn btn-secondary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>
